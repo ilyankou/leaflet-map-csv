@@ -31,7 +31,7 @@
   // Set up initial map center and zoom level
   var map = L.map('map', {
     center: [40.70, -73.97], // EDIT latitude, longitude to re-center map
-    zoom: 12,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
+    zoom: 11,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
     scrollWheelZoom: false,
     tap: false,
     preferCanvas: true,
@@ -42,7 +42,7 @@
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains: 'abcd',
     maxZoom: 19
-  });
+  }).addTo(map);
 
   // see more basemap options at https://leaflet-extras.github.io/leaflet-providers/preview/
 
@@ -58,7 +58,9 @@
       var row = data[i];
 
       var marker = L.circleMarker([row.Latitude, row.Longitude], {
-        opacity: 0.5,
+        color: 'rgba(222, 49, 99, 0.8)',
+        stroke: false,
+        radius: 6
       });
       
       marker.addTo(map);
